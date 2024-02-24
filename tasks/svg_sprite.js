@@ -2,6 +2,7 @@ const {src,	dest} = require('gulp')
 
 const svgmin = require('gulp-svgmin')
 const sprite = require('gulp-svg-sprite')
+const multiDest = require('gulp-multi-dest')
 
 module.exports = function svg_sprite() {
 	return src('app/svg/**/*.svg')
@@ -21,5 +22,5 @@ module.exports = function svg_sprite() {
 				}
 			}
 		}))
-		.pipe(dest('app/images'))
+		.pipe(multiDest(['app/images', 'build/images']))
 }
