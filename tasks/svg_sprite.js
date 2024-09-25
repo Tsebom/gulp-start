@@ -6,7 +6,13 @@ const multiDest = require('gulp-multi-dest')
 
 module.exports = function svg_sprite() {
 	return src('app/svg/**/*.svg')
-		.pipe(svgmin())
+		.pipe(svgmin({
+			plugins: [
+					"removeComments",
+					"removeEmptyContainers",
+					"removeMetadata"
+			]
+		}))
 		.pipe(sprite({
 			mode: {
 				stack: {

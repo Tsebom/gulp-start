@@ -21,17 +21,17 @@ exports.watch = task.watch
 exports.deploy = task.deploy
 
 exports.default = gulp.parallel(
-	exports.libs_style,
-	exports.styles,
-	exports.libs_js,
-	exports.scripts,
 	exports.rastr,
 	exports.webp,
-	exports.svg_css,
 	exports.svg_sprite,
 	exports.ttf,
 	exports.fonts,
 	exports.html,
+	exports.styles,
+	exports.libs_style,
+	exports.svg_css,
+	exports.scripts,
+	exports.libs_js,
 	exports.bs_html,
 	exports.watch
 )

@@ -10,7 +10,7 @@ const browserSync = require('browser-sync')
 const autoPrefixer = require('gulp-autoprefixer')
 
 module.exports = function styles() {
-	return src('app/scss/**/*.scss')
+	return src('app/scss/**/*.scss', '!app/scss/base/*.scss', '!app/scss/global/*.scss')
 		.pipe(map.init())
 		.pipe(bulk())
 		.pipe(scss({outputStyle: 'compressed'}).on('error', scss.logError))
