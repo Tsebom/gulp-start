@@ -5,7 +5,13 @@ const svgCss = require('gulp-svg-css-pseudo')
 
 module.exports = function svg_css() {
 	return src('app/svg/css/**/*.svg')
-		.pipe(svgmin())
+		.pipe(svgmin({
+			plugins: [
+					"removeComments",
+					"removeEmptyContainers",
+					"removeMetadata"
+			]
+		}))
 		.pipe(svgCss({
 			fileName: '_svg',
 			fileExt: 'scss',
