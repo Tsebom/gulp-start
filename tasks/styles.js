@@ -14,18 +14,7 @@ module.exports = function styles() {
 		.pipe(map.init())
 		.pipe(bulk())
 		.pipe(scss({outputStyle: 'compressed'}).on('error', scss.logError))
-		.pipe(autoPrefixer({
-			overrideBrowserslist: ['last 8 version'],
-			browsers: [
-				'Android >= 4',
-				'Chrome >= 20',
-				'Firefox >= 24',
-				'Explorer >= 11',
-				'iOS >= 6',
-				'Opera >= 12',
-				'Safari >= 6'
-			]
-		}))
+		.pipe(autoPrefixer({cascade: false}))
 		.pipe(clean({level: 2}))
 		.pipe(concat('style.min.css'))
 		.pipe(map.write('../sourcemaps'))
