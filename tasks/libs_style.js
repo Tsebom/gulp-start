@@ -12,8 +12,8 @@ module.exports = function libs_style(done) {
 	if (plugins.length > 0) {
 		return src(plugins)
 		.pipe(map.init())
-		.pipe(concat('libs.min.css'))
 		.pipe(scss({outputStyle: 'compressed'}).on('error', scss.logError))
+		.pipe(concat('libs.min.css'))
 		.pipe(map.write('../sourcemaps'))
 		.pipe(dest('build/css'))
 	} else {
