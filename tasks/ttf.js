@@ -8,15 +8,17 @@ const ttf2woff2 = require('gulp-ttftowoff2')
 const ttf2woff = require('gulp-ttf2woff');
 
 function cleanDirectory(directory) {
-	fs.readdir(directory, (err, files) => {
-		if (err) throw err;
+	if (fs.existsSync(directory)) {
+			fs.readdir(directory, (err, files) => {
+			if (err) throw err;
 
-		for (const file of files) {
-			fs.unlink(path.join(directory, file), (err) => {
-				if (err) throw err;
-			});
-		}
-	});
+			for (const file of files) {
+				fs.unlink(path.join(directory, file), (err) => {
+					if (err) throw err;
+				});
+			}
+		});
+	}
 }
 
 module.exports = function ttf(done) {
