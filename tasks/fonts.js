@@ -1,7 +1,6 @@
-const fs = require('fs')
+import fs from 'fs';
 
-const chalk = require('chalk')
-const { equal } = require('assert')
+import chalk from 'chalk';
 
 const weightStyle = new Map()
 
@@ -27,7 +26,7 @@ weightStyle.set("BlackItalic", 900)
 let srcFonts = 'app/scss/_local-fonts.scss'
 let appFonts = 'build/fonts/'
 
-module.exports = function fonts(done) {
+export const fonts = (done) => {
 	fs.writeFile(srcFonts, '', () => {})
 	fs.readdir(appFonts, (err, items) => {
 		if (items) {

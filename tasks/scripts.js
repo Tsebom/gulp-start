@@ -1,16 +1,17 @@
 //for main java code 
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const map = require('gulp-sourcemaps')
-const uglify = require('gulp-uglify-es').default
-const concat = require('gulp-concat')
-const browserSync = require('browser-sync')
+import map from 'gulp-sourcemaps';
+import terser from 'gulp-terser';
+import concat from 'gulp-concat';
+import browserSync from 'browser-sync';
 
-module.exports = function scripts() {
+export const scripts = () => {
 	return src(['app/components/**/*.js', 'app/js/main.js'])
 		.pipe(map.init())
 		.pipe(concat('main.min.js'))
-		.pipe(uglify())
+		.pipe(terser())
 		.pipe(map.write('../sourcemaps'))
 		.pipe(dest('build/js'))
 		.pipe(browserSync.stream())

@@ -1,7 +1,7 @@
-@import 'base/*.scss';
-@import 'global/_var.scss';
-@import 'global/_global.scss';
-@import '../components/**/*.scss';
+@use 'base/*.scss';
+@use 'global/_var.scss';
+@use 'global/_global.scss';
+@use '../components/**/*.scss';
 
 .container {
 	max-width: 1200px;

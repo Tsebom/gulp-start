@@ -1,11 +1,14 @@
-const {src} = require('gulp')
+import gulp from 'gulp';
+const {src} = gulp;
 
-const ftp = require('vinyl-ftp')
-const ftpSettings = require('../tasks/ftp_settings')
+import ftp from 'vinyl-ftp';
+import chalk from 'chalk';
+
+import ftpSettings from '../tasks/ftp_settings.json' assert {type: 'json'};
+
 const connect = ftp.create(ftpSettings)
-const chalk = require('chalk')
 
-module.exports = function deploy() {
+export const deploy = () => {
 	return src(['build/**/*.*', '!build/**/*.map'])
 		.pipe(connect.newer('public_html/'))
 		.pipe(connect.dest('public_html/'))

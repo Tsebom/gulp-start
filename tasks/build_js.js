@@ -1,14 +1,15 @@
 //for minimaize prodaction js code
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const uglify = require('gulp-uglify-es').default
-const concat = require('gulp-concat')
-const babel = require('gulp-babel')
+import terser from 'gulp-terser';
+import concat from 'gulp-concat';
+import babel from 'gulp-babel';
 
-module.exports = function build_js() {
+export const build_js = () => {
 	return src(['app/components/**/*.js', 'app/js/main.js'])
 		.pipe(concat())
-		.pipe(uglify())
+		.pipe(terser())
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
