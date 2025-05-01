@@ -3,8 +3,9 @@ const {src} = gulp;
 
 import ftp from 'vinyl-ftp';
 import chalk from 'chalk';
+import fs from 'fs';
 
-import ftpSettings from '../tasks/ftp_settings.json' assert {type: 'json'};
+const ftpSettings = fs.readFileSync('./tasks/ftp_settings.json');
 
 const connect = ftp.create(ftpSettings)
 

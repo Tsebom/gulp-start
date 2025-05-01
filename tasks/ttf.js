@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 import changed from 'gulp-changed';
-import ttf2woff2 from 'gulp-ttftowoff2';
+import ttf2woff2 from 'gulp-ttf2woff2';
 import ttf2woff from 'gulp-ttf2woff';
 
 const cleanDirectory = (directory) => {
