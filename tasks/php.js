@@ -1,9 +1,10 @@
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const include = require('gulp-file-include')
-const browserSync = require('browser-sync')
+import include from 'gulp-file-include';
+import browserSync from 'browser-sync';
 
-module.exports = function php() {
+export const php = () => {
 	return src(['app/**/*.php'])
 		.pipe(include())
 		.pipe(dest('build/php'))

@@ -1,7 +1,6 @@
-const fs = require('fs')
+import fs from 'fs';
 
-const chalk = require('chalk')
-const { equal } = require('assert')
+import chalk from 'chalk';
 
 const weightStyle = new Map()
 
@@ -27,13 +26,15 @@ weightStyle.set("BlackItalic", 900)
 let srcFonts = 'app/scss/_local-fonts.scss'
 let appFonts = 'build/fonts/'
 
-module.exports = function fonts(done) {
+export const fonts = (done) => {
 	fs.writeFile(srcFonts, '', () => {})
 	fs.readdir(appFonts, (err, items) => {
 		if (items) {
 			let style
 			let name
 			let c_fontname;
+			let weight;
+
 			for (let i = 0; i < items.length; i++) {
 				let fontname = items[i].split('.');
 				let fontExt = fontname[1];
@@ -45,6 +46,7 @@ module.exports = function fonts(done) {
 				for (const key of weightStyle.keys()) {
 					if (style === key) {
 						weight = weightStyle.get(key)
+
 						if (style.includes('Italic')) {
 							style = 'italic'
 						} else {
@@ -53,16 +55,11 @@ module.exports = function fonts(done) {
 						break
 					}
 				}
-				
+
 				if (c_fontname != fontname) {
 					if (fontExt == 'woff' || fontExt == 'woff2') {
 						fs.appendFile(srcFonts, `@include font-face("${name}", "${fontname}", ${weight}, ${style});\r\n`, () => {})
-						console.log(chalk `
-{bold {bgGray Added new font: ${fontname}.}
-----------------------------------------------------------------------------------
-{bgYellow.black Please, move mixin call from {cyan app/scss/_local-fonts.scss} to {cyan app/scss/_fonts.scss} and then change it!}}
-----------------------------------------------------------------------------------
-`);
+						console.log(chalk `\n{bold {bgGray Added font ${fontname} to the file ${srcFonts}}}\n\r`);
 					}
 				}
 				c_fontname = fontname;

@@ -1,6 +1,6 @@
-const browserSync = require('browser-sync');
+import browserSync from 'browser-sync';
 
-module.exports = function bs_php() {
+export const bs_php = () => {
 	browserSync.init({
 		browser: ['chrome'],
 		watch: true,

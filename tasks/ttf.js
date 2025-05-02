@@ -1,28 +1,11 @@
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const fs = require("fs");
-const path = require("path");
+import changed from 'gulp-changed';
+import ttf2woff2 from 'gulp-ttf2woff2';
+import ttf2woff from 'gulp-ttf2woff';
 
-const changed = require('gulp-changed')
-const ttf2woff2 = require('gulp-ttftowoff2')
-const ttf2woff = require('gulp-ttf2woff');
-
-function cleanDirectory(directory) {
-	if (fs.existsSync(directory)) {
-			fs.readdir(directory, (err, files) => {
-			if (err) throw err;
-
-			for (const file of files) {
-				fs.unlink(path.join(directory, file), (err) => {
-					if (err) throw err;
-				});
-			}
-		});
-	}
-}
-
-module.exports = function ttf(done) {
-	cleanDirectory('build/fonts')
+export const ttf = (done) => {
 	src('app/fonts/**/*.ttf')
 		.pipe(changed('build/fonts', {
 			extension: '.woff2',
