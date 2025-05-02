@@ -1,6 +1,6 @@
-const browserSync = require('browser-sync');
+import browserSync from 'browser-sync';
 
-module.exports = function bs_html() {
+export const bs_html = () => {
 	browserSync.init({
 		server: {
 			baseDir: 'build/',

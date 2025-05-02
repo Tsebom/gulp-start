@@ -1,53 +1,53 @@
-const gulp = require('gulp')
-const requireDir = require('require-dir')
-const task = requireDir('./tasks')
+import gulp from 'gulp';
 
-exports.styles = task.styles
-exports.libs_style = task.libs_style
-exports.build_js = task.build_js
-exports.libs_js = task.libs_js
-exports.scripts = task.scripts
-exports.html = task.html
-exports.php = task.php
-exports.rastr = task.rastr
-exports.webp = task.webp
-exports.svg_css = task.svg_css
-exports.svg_sprite = task.svg_sprite
-exports.ttf = task.ttf
-exports.fonts = task.fonts
-exports.bs_html = task.bs_html
-exports.bs_php = task.bs_php
-exports.watch = task.watch
-exports.deploy = task.deploy
+export const { styles } = await import('./tasks/styles.js');
+export const { libs_style } = await import('./tasks/libs_style.js');
+export const { build_js } = await import('./tasks/build_js.js');
+export const { libs_js } = await import('./tasks/libs_js.js');
+export const { scripts } = await import('./tasks/scripts.js');
+export const { html } = await import('./tasks/html.js');
+export const { php } = await import('./tasks/php.js');
+export const { rastr } = await import('./tasks/rastr.js');
+export const { webp } = await import('./tasks/webp.js');
+export const { svg_css } = await import('./tasks/svg_css.js');
+export const { svg_sprite } = await import('./tasks/svg_sprite.js');
+export const { ttf } = await import('./tasks/ttf.js');
+export const { fonts } = await import('./tasks/fonts.js');
+export const { bs_html } = await import('./tasks/bs_html.js');
+export const { bs_php } = await import('./tasks/bs_php.js');
+export const { watching } = await import('./tasks/watch.js');
+export const { deploy } = await import('./tasks/deploy.js');
 
-exports.default = gulp.parallel(
-	exports.rastr,
-	exports.webp,
-	exports.svg_sprite,
-	exports.ttf,
-	exports.fonts,
-	exports.html,
-	exports.styles,
-	exports.libs_style,
-	exports.svg_css,
-	exports.scripts,
-	exports.libs_js,
-	exports.bs_html,
-	exports.watch
+export default gulp.parallel(
+	rastr,
+	webp,
+	svg_sprite,
+	ttf,
+	fonts,
+	html,
+	styles,
+	libs_style,
+	svg_css,
+	scripts,
+	libs_js,
+	bs_html,
+	watching
 )
 
-exports.dev_php = gulp.parallel(
-	exports.libs_style,
-	exports.svg_css,
-	exports.fonts,
-	exports.styles,
-	exports.libs_js,
-	exports.scripts,
-	exports.rastr,
-	exports.webp,
-	exports.svg_sprite,
-	exports.ttf,
-	exports.php,
-	exports.bs_php,
-	exports.watch
-)
+export const dev_php = () => {
+	gulp.parallel(
+		libs_style,
+		svg_css,
+		fonts,
+		styles,
+		libs_js,
+		scripts,
+		rastr,
+		webp,
+		svg_sprite,
+		ttf,
+		php,
+		bs_php,
+		watching
+	)
+}

@@ -1,11 +1,18 @@
-const {src,	dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const svgmin = require('gulp-svgmin')
-const svgCss = require('gulp-svg-css-pseudo')
+import svgmin from 'gulp-svgmin';
+import svgCss from 'gulp-svg-css-pseudo';
 
-module.exports = function svg_css() {
+export const svg_css = () => {
 	return src('app/svg/css/**/*.svg')
-		.pipe(svgmin())
+		.pipe(svgmin({
+			plugins: [
+					"removeComments",
+					"removeEmptyContainers",
+					"removeMetadata"
+			]
+		}))
 		.pipe(svgCss({
 			fileName: '_svg',
 			fileExt: 'scss',

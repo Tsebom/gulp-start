@@ -1,10 +1,11 @@
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const include = require('gulp-file-include')
-const browserSync = require('browser-sync')
+import include from 'gulp-file-include';
+import browserSync from 'browser-sync';
 
-module.exports = function html() {
-	return src(['app/**/*.html', '!app/components/**/*.html', '!app/pages/template.html'], {base: 'app'})
+export const html = () => {
+	return src(['app/**/*.html', '!app/components/**/*.html'], {base: 'app'})
 		.pipe(include())
 		.pipe(dest('build'))
 		.pipe(browserSync.stream())

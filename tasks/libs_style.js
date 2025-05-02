@@ -1,19 +1,23 @@
 //create plugins' css file
 const plugins = []
 
-const {src, dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const map = require('gulp-sourcemaps')
-const scss = require('gulp-sass')(require('sass'))
-const concat = require('gulp-concat')
-const chalk = require('chalk')
+import map from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import chalk from 'chalk';
 
-module.exports = function libs_style(done) {
+import * as dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const scss = gulpSass(dartSass);
+
+export const libs_style = (done) => {
 	if (plugins.length > 0) {
 		return src(plugins)
 		.pipe(map.init())
-		.pipe(concat('libs.min.css'))
 		.pipe(scss({outputStyle: 'compressed'}).on('error', scss.logError))
+		.pipe(concat('libs.min.css'))
 		.pipe(map.write('../sourcemaps'))
 		.pipe(dest('build/css'))
 	} else {

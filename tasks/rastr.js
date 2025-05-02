@@ -1,13 +1,14 @@
-const {src,	dest} = require('gulp')
+import gulp from 'gulp';
+const {src, dest} = gulp;
 
-const changed = require('gulp-changed')
-const recompress = require('imagemin-jpeg-recompress')
-const pngquant = require('imagemin-pngquant')
-const plumber = require('gulp-plumber')
-const browserSync = require('browser-sync')
-const imagemin = require('gulp-imagemin')
+import changed from 'gulp-changed';
+import recompress from 'imagemin-jpeg-recompress';
+import pngquant from 'imagemin-pngquant';
+import plumber from 'gulp-plumber';
+import browserSync from 'browser-sync';
+import imagemin from 'gulp-imagemin';
 
-module.exports = function rastr() {
+export const rastr = () => {
 	return src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
 		.pipe(plumber())
 		.pipe(changed('build/images'))
