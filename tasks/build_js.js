@@ -8,7 +8,6 @@ import babel from 'gulp-babel';
 
 export const build_js = () => {
 	return src(['app/components/**/*.js', 'app/js/main.js'])
-		.pipe(concat())
 		.pipe(terser())
 		.pipe(babel({
 			presets: ['@babel/env']
