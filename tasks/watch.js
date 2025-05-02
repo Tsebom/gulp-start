@@ -4,7 +4,6 @@ const {watch,	parallel,	series} = gulp;
 import path from 'path';
 import findRemoveSync from 'find-remove';
 
-
 import { html } from './html.js';
 import { php } from './php.js';
 import { styles } from './styles.js';
@@ -22,9 +21,7 @@ export const watching = () => {
 	wh_ttf.on('unlink', function(file) {
 		let name = path.basename(file).split('.')[0];
 
-		findRemoveSync('build/fonts/', {
-			prefix : name
-		})
+		findRemoveSync('build/fonts/', {prefix : name});
 	});
 
 	const wh_rastr = watch('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)', parallel(rastr));
@@ -32,13 +29,8 @@ export const watching = () => {
 	wh_rastr.on('unlink', function(file) {
 		let name = path.basename(file).split('.')[0];
 
-		findRemoveSync('build/images/', {
-			prefix : name
-		})
-
-		findRemoveSync('app/images/', {
-			prefix : name
-		})
+		findRemoveSync('build/images/', {prefix : name});
+		findRemoveSync('app/images/', {prefix : name});
 	});
 
 	watch('app/**/*.html', parallel(html));

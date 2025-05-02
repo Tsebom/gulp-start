@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-const {src, dest} = gulp;
+const {src} = gulp;
 
 import svgmin from 'gulp-svgmin';
 import sprite from 'gulp-svg-sprite';
