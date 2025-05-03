@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-const {watch,	parallel,	series} = gulp;
+const { watch, parallel, series } = gulp;
 
 import path from 'path';
 import findRemoveSync from 'find-remove';
@@ -18,19 +18,19 @@ import { fonts } from './fonts.js';
 export const watching = () => {
 	const wh_ttf = watch('app/fonts/**/*.ttf', parallel(ttf));
 
-	wh_ttf.on('unlink', function(file) {
+	wh_ttf.on('unlink', function (file) {
 		let name = path.basename(file).split('.')[0];
 
-		findRemoveSync('build/fonts/', {prefix : name});
+		findRemoveSync('build/fonts/', { prefix: name });
 	});
 
 	const wh_rastr = watch('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)', parallel(rastr));
 
-	wh_rastr.on('unlink', function(file) {
+	wh_rastr.on('unlink', function (file) {
 		let name = path.basename(file).split('.')[0];
 
-		findRemoveSync('build/images/', {prefix : name});
-		findRemoveSync('app/images/', {prefix : name});
+		findRemoveSync('build/images/', { prefix: name });
+		findRemoveSync('app/images/', { prefix: name });
 	});
 
 	watch('app/**/*.html', parallel(html));
@@ -42,4 +42,4 @@ export const watching = () => {
 	watch('build/images/**/*.+(png|jpg|jpeg)', parallel(webp));
 	watch('app/svg/css/**/*.svg', series(svg_css, styles));
 	watch('build/fonts/**/*.woff2', parallel(fonts));
-}
+};

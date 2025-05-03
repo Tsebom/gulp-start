@@ -7,7 +7,8 @@
     "php": "gulp dev_php",
     "build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html && gulp php",
     "ftp": "gulp deploy",
-    "build-ftp": "npm run build && npm run ftp"
+    "build-ftp": "npm run build && npm run ftp",
+    "prettier_tasks": "prettier -w tasks/*.js"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +42,8 @@
     "gulp-webp": "^4.0.1",
     "imagemin-jpeg-recompress": "^7.1.0",
     "imagemin-pngquant": "^9.0.2",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-attributes": "^1.0.0",
     "sass": "^1.87.0",
     "vinyl-ftp": "^0.6.1"
   },

@@ -1,0 +1,16 @@
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "tabWidth": 2,
+	"useTabs": true,
+  "semi": true,
+	"objectWrap": "preserve",
+	"arrowParens": "always",
+	"proseWrap": "always",
+	"singleAttributePerLine": true,
+	"plugins": ["prettier-plugin-organize-attributes"],
+  "attributeGroups": ["^class$", "^(id|name)$", "^data-", "$DEFAULT"]
+}
