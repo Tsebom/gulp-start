@@ -8,7 +8,8 @@
     "build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html && gulp php",
     "ftp": "gulp deploy",
     "build-ftp": "npm run build && npm run ftp",
-    "prettier_tasks": "prettier -w tasks/*.js"
+    "prettier": "prettier -w ",
+		"prettier_tasks": "prettier -w tasks/*.js"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-multi-dest": "^1.3.7",
     "gulp-plumber": "^1.2.1",
+    "gulp-run": "^1.7.1",
     "gulp-sass": "^6.0.1",
     "gulp-sass-glob-use-forward": "^0.1.3",
     "gulp-sourcemaps": "^3.0.0",
