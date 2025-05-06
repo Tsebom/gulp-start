@@ -1,6 +1,6 @@
 //convert, concatenate and compress scss to css
 import gulp from 'gulp';
-const {src, dest} = gulp;
+const { src, dest } = gulp;
 
 import bulk from 'gulp-sass-glob-use-forward';
 import map from 'gulp-sourcemaps';
@@ -17,11 +17,11 @@ export const styles = () => {
 	return src('app/scss/**/*.scss', '!app/scss/base/*.scss', '!app/scss/global/*.scss')
 		.pipe(map.init())
 		.pipe(bulk())
-		.pipe(scss({outputStyle: 'compressed'}).on('error', scss.logError))
-		.pipe(autoPrefixer({cascade: false}))
-		.pipe(clean({level: 2}))
+		.pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
+		.pipe(autoPrefixer({ cascade: false }))
+		.pipe(clean({ level: 2 }))
 		.pipe(concat('style.min.css'))
 		.pipe(map.write('../sourcemaps'))
 		.pipe(dest('build/css'))
-		.pipe(browserSync.stream())//reboot html file
-}
+		.pipe(browserSync.stream()); //reboot html file
+};

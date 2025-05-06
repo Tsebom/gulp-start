@@ -1,6 +1,6 @@
-//for main java code 
+//for main java code
 import gulp from 'gulp';
-const {src, dest} = gulp;
+const { src, dest } = gulp;
 
 import map from 'gulp-sourcemaps';
 import terser from 'gulp-terser';
@@ -14,5 +14,5 @@ export const scripts = () => {
 		.pipe(terser())
 		.pipe(map.write('../sourcemaps'))
 		.pipe(dest('build/js'))
-		.pipe(browserSync.stream())
-}
+		.pipe(browserSync.stream());
+};
