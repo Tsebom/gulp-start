@@ -9,7 +9,8 @@
     "ftp": "gulp deploy",
     "build-ftp": "npm run build && npm run ftp",
     "prettier": "prettier -w ",
-    "prettier_tasks": "prettier -w tasks/*.js"
+    "prettier_tasks": "prettier -w tasks/*.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,10 @@
     "browser-sync": "^2.29.3",
     "chalk": "^4.1.2",
     "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-xo": "^0.47.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-sonarjs": "^3.0.2",
     "find-remove": "^5.1.1",
     "globals": "^16.1.0",
     "gulp": "^4.0.2",
