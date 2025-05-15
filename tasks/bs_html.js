@@ -21,6 +21,6 @@ export const bs_html = () => {
 		logLevel: 'info',
 		logConnections: true,
 		logFileChanges: true,
-		open: true,
+		open: false,
 	});
 };

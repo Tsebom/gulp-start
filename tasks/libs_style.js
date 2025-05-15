@@ -21,6 +21,7 @@ export const libs_style = (done) => {
 			.pipe(map.write('../sourcemaps'))
 			.pipe(dest('build/css'));
 	} else {
+		// eslint-disable-next-line no-undef
 		return done(console.log(chalk.redBright('No added css/scss plugins')));
 	}
 };
