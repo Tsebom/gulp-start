@@ -7,7 +7,6 @@
   "tabWidth": 2,
   "useTabs": true,
   "semi": true,
-  "objectWrap": "preserve",
   "arrowParens": "always",
   "proseWrap": "always",
   "singleAttributePerLine": true,

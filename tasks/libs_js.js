@@ -20,7 +20,7 @@ export const libs_js = (done) => {
 			.pipe(dest('build/js'))
 			.pipe(browserSync.stream());
 	} else {
-		// eslint-disable-next-line
+		// eslint-disable-next-line no-undef
 		return done(console.log(chalk.redBright('No added js plugins')));
 	}
 };
