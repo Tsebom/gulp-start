@@ -63,6 +63,7 @@ export const fonts = (done) => {
 							`@include font-face("${name}", "${fontname}", ${weight}, ${style});\r\n`,
 							() => {}
 						);
+						// eslint-disable-next-line
 						console.log(
 							chalk`\n{bold {bgGray Added font ${fontname} to the file ${srcFonts}}}\n\r`
 						);

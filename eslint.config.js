@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import { defineConfig } from 'eslint/config';
+import { defineConfig } from 'eslint/config'; // eslint-disable-line node/no-missing-import
 import xo from 'eslint-config-xo';
 import prettier from 'eslint-config-prettier';
 import sonarjs from 'eslint-plugin-sonarjs';
@@ -49,7 +49,7 @@ export default defineConfig([
 			// Node.js best practices
 			'node/no-missing-import': 'error',
 			'node/no-extraneous-import': 'error',
-			'node/no-unpublished-import': 'warn',
+			'node/no-unpublished-import': 'off',
 			// unsuported in eslint@9.**
 			//'node/no-unsupported-features/es-syntax': ['error', { version: '>=14.0.0', ignores: [] }],
 		},
