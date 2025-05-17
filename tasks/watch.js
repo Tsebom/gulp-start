@@ -48,7 +48,7 @@ export const watching = () => {
 	});
 
 	const wh_script = watch('app/**/*.js', parallel(scripts));
-	
+
 	wh_script.on('change', (file) => {
 		run(`npm run prettier -- ./${file}`).exec();
 	});

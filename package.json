@@ -1,73 +1,90 @@
 {
-  "private": true,
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "html": "gulp",
-    "php": "gulp dev_php",
-    "build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html && gulp php",
-    "ftp": "gulp deploy",
-    "build-ftp": "npm run build && npm run ftp",
-    "prettier": "prettier -w ",
-    "prettier_tasks": "prettier -w tasks/*.js",
-    "lint": "eslint ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@babel/preset-env": "^7.22.10",
-    "@eslint/js": "^9.26.0",
-    "browser-sync": "^2.29.3",
-    "chalk": "^4.1.2",
-    "eslint": "^9.26.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-config-xo": "^0.47.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-sonarjs": "^3.0.2",
-    "find-remove": "^5.1.1",
-    "globals": "^16.1.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-changed": "^4.0.3",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-file-include": "^2.3.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-multi-dest": "^1.3.7",
-    "gulp-plumber": "^1.2.1",
-    "gulp-run": "^1.7.1",
-    "gulp-sass": "^6.0.1",
-    "gulp-sass-glob-use-forward": "^0.1.3",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-svg-css-pseudo": "^1.0.4",
-    "gulp-svg-sprite": "^2.0.3",
-    "gulp-svgmin": "^4.1.0",
-    "gulp-terser": "^2.1.0",
-    "gulp-ttf2woff": "^1.1.1",
-    "gulp-ttf2woff2": "^5.0.0",
-    "gulp-webp": "^4.0.1",
-    "imagemin-jpeg-recompress": "^7.1.0",
-    "imagemin-pngquant": "^9.0.2",
-    "prettier": "^3.5.3",
-    "prettier-plugin-organize-attributes": "^1.0.0",
-    "sass": "^1.87.0",
-    "vinyl-ftp": "^0.6.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "last 1 ie version"
-    ]
-  }
+	"private": true,
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"html": "gulp",
+		"php": "gulp dev_php",
+		"build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html && gulp php",
+		"ftp": "gulp deploy",
+		"build-ftp": "npm run build && npm run ftp",
+		"prettier": "prettier -w ",
+		"prettier_tasks": "prettier -w tasks/*.*",
+		"lint": "eslint ",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"**/*.js": [
+			"prettier --check",
+			"npm run lint"
+		],
+		"**/*.{html,scss,json}": [
+			"prettier --check"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.22.10",
+		"@babel/preset-env": "^7.22.10",
+		"@eslint/js": "^9.26.0",
+		"browser-sync": "^2.29.3",
+		"chalk": "^4.1.2",
+		"eslint": "^9.26.0",
+		"eslint-config-prettier": "^10.1.5",
+		"eslint-config-xo": "^0.47.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-sonarjs": "^3.0.2",
+		"find-remove": "^5.1.1",
+		"globals": "^16.1.0",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-changed": "^4.0.3",
+		"gulp-clean": "^0.4.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-file-include": "^2.3.0",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-multi-dest": "^1.3.7",
+		"gulp-plumber": "^1.2.1",
+		"gulp-run": "^1.7.1",
+		"gulp-sass": "^6.0.1",
+		"gulp-sass-glob-use-forward": "^0.1.3",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-svg-css-pseudo": "^1.0.4",
+		"gulp-svg-sprite": "^2.0.3",
+		"gulp-svgmin": "^4.1.0",
+		"gulp-terser": "^2.1.0",
+		"gulp-ttf2woff": "^1.1.1",
+		"gulp-ttf2woff2": "^5.0.0",
+		"gulp-webp": "^4.0.1",
+		"husky": "^9.1.7",
+		"imagemin-jpeg-recompress": "^7.1.0",
+		"imagemin-pngquant": "^9.0.2",
+		"lint-staged": "^16.0.0",
+		"prettier": "^3.5.3",
+		"prettier-plugin-organize-attributes": "^1.0.0",
+		"sass": "^1.87.0",
+		"vinyl-ftp": "^0.6.1"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version",
+			"last 1 ie version"
+		]
+	}
 }

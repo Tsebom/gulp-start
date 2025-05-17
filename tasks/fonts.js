@@ -29,7 +29,7 @@ let appFonts = 'build/fonts/'; // путь к папке со шрифтами
 export const fonts = (done) => {
 	fs.writeFile(scssFonts, '', () => {});
 	fs.readdir(appFonts, (err, items) => {
-		if(err) throw err;
+		if (err) throw err;
 		if (!items) return;
 
 		items.forEach((file) => {
