@@ -9,5 +9,5 @@ export const bs_php = () => {
 		logPrefix: 'BS-PHP:',
 		logConnections: true,
 		logFileChanges: true,
-	})
-}
+	});
+};

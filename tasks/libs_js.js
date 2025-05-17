@@ -1,8 +1,8 @@
 //for plagins' js code
-const plugins = []
+const plugins = [];
 
 import gulp from 'gulp';
-const {src, dest} = gulp;
+const { src, dest } = gulp;
 
 import map from 'gulp-sourcemaps';
 import terser from 'gulp-terser';
@@ -18,8 +18,9 @@ export const libs_js = (done) => {
 			.pipe(concat('libs.min.js'))
 			.pipe(map.write('../sourcemaps'))
 			.pipe(dest('build/js'))
-			.pipe(browserSync.stream())
+			.pipe(browserSync.stream());
 	} else {
-		return done(console.log(chalk.redBright('No added js plugins')))
+		// eslint-disable-next-line no-undef
+		return done(console.log(chalk.redBright('No added js plugins')));
 	}
-}
+};
