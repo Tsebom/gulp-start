@@ -15,6 +15,7 @@ import { svg_css } from './svg_css.js';
 import { svg_sprite } from './svg_sprite.js';
 import { ttf } from './ttf.js';
 import { fonts } from './fonts.js';
+import { ftp } from './ftp_gitignore.js';
 
 export const watching = () => {
 	const wh_ttf = watch('app/fonts/**/*.ttf', parallel(ttf));
@@ -58,4 +59,5 @@ export const watching = () => {
 	watch('build/images/**/*.+(png|jpg|jpeg)', parallel(webp));
 	watch('app/svg/css/**/*.svg', series(svg_css, styles));
 	watch('build/fonts/**/*.woff2', parallel(fonts));
+	watch('tasks/ftp_settings.json', parallel(ftp));
 };

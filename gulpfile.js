@@ -17,6 +17,7 @@ export const { bs_html } = await import('./tasks/bs_html.js');
 export const { bs_php } = await import('./tasks/bs_php.js');
 export const { watching } = await import('./tasks/watch.js');
 export const { deploy } = await import('./tasks/deploy.js');
+export const { ftp } = await import('./tasks/ftp_gitignore.js');
 
 export default gulp.parallel(
 	rastr,
@@ -31,8 +32,9 @@ export default gulp.parallel(
 	scripts,
 	libs_js,
 	bs_html,
+	ftp,
 	watching
-)
+);
 
 export const dev_php = () => {
 	gulp.parallel(
@@ -49,5 +51,5 @@ export const dev_php = () => {
 		php,
 		bs_php,
 		watching
-	)
-}
+	);
+};
