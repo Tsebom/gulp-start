@@ -4,7 +4,7 @@ export const bs_html = () => {
 	browserSync.init({
 		server: {
 			baseDir: 'build/',
-			host: '192.168.1.77', //this is the local ip your PC
+			host: '192.168.1.1', //this is the local ip your PC
 		},
 		callbacks: {
 			ready: function (err, browserSync) {
