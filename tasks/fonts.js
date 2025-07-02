@@ -23,8 +23,8 @@ weightStyle.set('ExtraBoldItalic', 800);
 weightStyle.set('Black', 900);
 weightStyle.set('BlackItalic', 900);
 
-let scssFonts = 'app/scss/_local-fonts.scss';
-let appFonts = 'build/fonts/'; // путь к папке со шрифтами
+const scssFonts = 'app/scss/_local-fonts.scss';
+const appFonts = 'build/fonts/'; // путь к папке со шрифтами
 
 export const fonts = (done) => {
 	fs.writeFile(scssFonts, '', () => {});
@@ -33,8 +33,8 @@ export const fonts = (done) => {
 		if (!items) return;
 
 		items.forEach((file) => {
-			let [basename, ext] = file.split('.'); // полное имя файла, расширение
-			let [fontName, rawStyle] = basename.split('-'); // расширение файла
+			let [basename, ext] = file.split('.');
+			let [fontName, rawStyle] = basename.split('-');
 
 			let style = rawStyle.includes('Italic') ? 'italic' : 'normal';
 
