@@ -1,7 +1,7 @@
 {
-	"WARNING": "after setting change don't forget write this file down to .gitignore",
 	"host": "yourhosting.com",
 	"user": "username",
 	"pass": "*********",
-	"parallel": 10
+	"parallel": 10,
+	"dest": "path/to/target/server's/folder"
 }
