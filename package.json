@@ -4,8 +4,7 @@
 	"main": "index.js",
 	"scripts": {
 		"html": "gulp",
-		"php": "gulp dev_php",
-		"build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html && gulp php",
+		"build": "gulp libs_style && gulp svg_css && gulp ttf && gulp fonts && gulp styles && gulp libs_js && gulp build_js && gulp rastr && gulp webp && gulp svg_sprite && gulp html",
 		"ftp": "gulp deploy",
 		"build-ftp": "npm run build && npm run ftp",
 		"prettier": "prettier -w ",
