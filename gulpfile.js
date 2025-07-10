@@ -6,7 +6,6 @@ export const { build_js } = await import('./tasks/build_js.js');
 export const { libs_js } = await import('./tasks/libs_js.js');
 export const { scripts } = await import('./tasks/scripts.js');
 export const { html } = await import('./tasks/html.js');
-export const { php } = await import('./tasks/php.js');
 export const { rastr } = await import('./tasks/rastr.js');
 export const { webp } = await import('./tasks/webp.js');
 export const { svg_css } = await import('./tasks/svg_css.js');
@@ -35,21 +34,3 @@ export default gulp.parallel(
 	ftp,
 	watching
 );
-
-export const dev_php = () => {
-	gulp.parallel(
-		libs_style,
-		svg_css,
-		fonts,
-		styles,
-		libs_js,
-		scripts,
-		rastr,
-		webp,
-		svg_sprite,
-		ttf,
-		php,
-		bs_php,
-		watching
-	);
-};

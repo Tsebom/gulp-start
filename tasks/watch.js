@@ -6,7 +6,6 @@ import findRemoveSync from 'find-remove';
 import run from 'gulp-run';
 
 import { html } from './html.js';
-import { php } from './php.js';
 import { styles } from './styles.js';
 import { scripts } from './scripts.js';
 import { rastr } from './rastr.js';
@@ -35,11 +34,6 @@ export const watching = () => {
 
 	const wh_html = watch('app/**/*.html', parallel(html));
 	wh_html.on('change', (file) => {
-		run(`npm run prettier -- ./${file}`).exec();
-	});
-
-	const wh_php = watch('app/**/*.php', parallel(php));
-	wh_php.on('change', (file) => {
 		run(`npm run prettier -- ./${file}`).exec();
 	});
 
