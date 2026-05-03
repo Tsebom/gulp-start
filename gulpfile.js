@@ -1,22 +1,42 @@
 import gulp from 'gulp';
 
-export const { styles } = await import('./tasks/styles.js');
-export const { libs_style } = await import('./tasks/libs_style.js');
-export const { build_js } = await import('./tasks/build_js.js');
-export const { libs_js } = await import('./tasks/libs_js.js');
-export const { scripts } = await import('./tasks/scripts.js');
-export const { html } = await import('./tasks/html.js');
-export const { rastr } = await import('./tasks/rastr.js');
-export const { webp } = await import('./tasks/webp.js');
-export const { svg_css } = await import('./tasks/svg_css.js');
-export const { svg_sprite } = await import('./tasks/svg_sprite.js');
-export const { ttf } = await import('./tasks/ttf.js');
-export const { fonts } = await import('./tasks/fonts.js');
-export const { bs_html } = await import('./tasks/bs_html.js');
-export const { bs_php } = await import('./tasks/bs_php.js');
-export const { watching } = await import('./tasks/watch.js');
-export const { deploy } = await import('./tasks/deploy.js');
-export const { ftp } = await import('./tasks/ftp_gitignore.js');
+import { build_js } from './tasks/build_js.js';
+import { bs_html } from './tasks/bs_html.js';
+import { bs_php } from './tasks/bs_php.js';
+import { deploy } from './tasks/deploy.js';
+import { fonts } from './tasks/fonts.js';
+import { ftp } from './tasks/ftp_gitignore.js';
+import { html } from './tasks/html.js';
+import { libs_js } from './tasks/libs_js.js';
+import { libs_style } from './tasks/libs_style.js';
+import { rastr } from './tasks/rastr.js';
+import { scripts } from './tasks/scripts.js';
+import { styles } from './tasks/styles.js';
+import { svg_css } from './tasks/svg_css.js';
+import { svg_sprite } from './tasks/svg_sprite.js';
+import { ttf } from './tasks/ttf.js';
+import { watching } from './tasks/watch.js';
+import { webp } from './tasks/webp.js';
+
+export {
+	build_js,
+	bs_html,
+	bs_php,
+	deploy,
+	fonts,
+	ftp,
+	html,
+	libs_js,
+	libs_style,
+	rastr,
+	scripts,
+	styles,
+	svg_css,
+	svg_sprite,
+	ttf,
+	watching,
+	webp,
+};
 
 export default gulp.parallel(
 	rastr,
